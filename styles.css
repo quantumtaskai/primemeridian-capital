@@ -673,7 +673,23 @@ body {
     url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&q=80') center center / cover no-repeat;
   background-attachment: fixed;
   position: relative;
-}\n\n.services-section::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.05) 50%, transparent 70%);\n  z-index: 1;\n}\n\n.services-section .container {\n  position: relative;\n  z-index: 2;\n}
+}
+
+.services-section::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.05) 50%, transparent 70%);
+ z-index: 1;
+}
+
+.services-section .container {
+ position: relative;
+ z-index: 2;
+}
 
 .services-grid-horizontal {
   display: grid;
@@ -1161,14 +1177,14 @@ body {
 .portrait-placeholder {
   width: 320px;
   height: 520px;
-  background: 
+  background:
     linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%),
-    url('about2.png') center center / cover no-repeat;
+    url('founder.jpeg') center center / cover no-repeat;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
+  box-shadow:
     var(--shadow-luxury),
     inset 0 0 0 1px rgba(212, 175, 55, 0.2);
   margin-bottom: var(--space-lg);
