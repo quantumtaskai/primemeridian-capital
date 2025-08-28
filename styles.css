@@ -275,7 +275,7 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 80px; /* Account for fixed navbar */
+  padding: 140px 0 60px 0; /* Universal spacing: 140px top, 60px bottom */
 }
 
 .hero-container {
@@ -1770,7 +1770,7 @@ body {
   /* Laptop and 13-inch screen optimizations */
   .hero-section {
     min-height: 95vh;
-    padding-top: 90px; /* Optimized for laptop screens */
+    padding: 120px 0 50px 0; /* Adjusted for laptop screens */
   }
   
   .hero-container {
@@ -1935,8 +1935,7 @@ body {
   
   .hero-section {
     min-height: 100vh;
-    padding-top: 80px; /* Account for mobile navbar */
-    padding-bottom: 0;
+    padding: 100px 0 40px 0; /* Universal tablet spacing */
     display: flex;
     align-items: center;
   }
@@ -2126,8 +2125,7 @@ body {
   
   .hero-section {
     min-height: 100vh;
-    padding-top: 80px;
-    padding-bottom: var(--space-xl);
+    padding: 100px 0 40px 0; /* Universal mobile spacing */
     display: flex;
     align-items: center;
   }
