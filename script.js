@@ -29,19 +29,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Contact Form Handling
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('.contact-form-original');
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     // Get form data
     const formData = new FormData(contactForm);
-    const name = formData.get('name');
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
     const email = formData.get('email');
     const company = formData.get('company');
     const message = formData.get('message');
     
     // Basic validation
-    if (!name || !email || !message) {
+    if (!firstName || !lastName || !email || !message) {
         alert('Please fill in all required fields.');
         return;
     }
@@ -53,63 +54,103 @@ contactForm.addEventListener('submit', function(e) {
         return;
     }
     
-    // Simulate form submission (replace with actual form handling)
+    // Enhanced form submission with loading states
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
     
-    // Simulate API call
+    // Add loading state
+    submitButton.innerHTML = '<span class="loading-spinner"></span> Sending...';
+    submitButton.disabled = true;
+    submitButton.style.opacity = '0.7';
+    
+    // Simulate API call with better UX
     setTimeout(() => {
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
+        // Success state
+        submitButton.innerHTML = '✓ Message Sent';
+        submitButton.style.backgroundColor = '#4CAF50';
+        
+        setTimeout(() => {
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'form-success-message';
+            successMessage.innerHTML = '✓ Thank you for your inquiry! We will get back to you within 24 hours.';
+            contactForm.appendChild(successMessage);
+            
+            // Reset form and button after showing success
+            contactForm.reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+            submitButton.style.opacity = '1';
+            submitButton.style.backgroundColor = '';
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                if (successMessage.parentNode) {
+                    successMessage.remove();
+                }
+            }, 5000);
+        }, 1000);
     }, 2000);
 });
 
-// Navbar scroll effect
+// Navbar scroll effect - optimized with throttling
 let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
+let ticking = false;
+const navbar = document.querySelector('.luxury-navbar');
 
-window.addEventListener('scroll', () => {
+function updateNavbar() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
     // Add/remove background opacity based on scroll
-    if (scrollTop > 100) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+    if (navbar) {
+        if (scrollTop > 100) {
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.backdropFilter = 'blur(10px)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.backdropFilter = 'blur(5px)';
+        }
     }
     
     lastScrollTop = scrollTop;
-});
+    ticking = false;
+}
 
-// Intersection Observer for animations
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+    }
+}, { passive: true });
+
+// Intersection Observer for animations - optimized
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target); // Stop observing after animation
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
+// Observe elements for animation - optimized
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .about-content, .contact-content');
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+    if (!prefersReducedMotion) {
+        const animateElements = document.querySelectorAll('.service-card-original, .about-content-original, .leadership-content-original');
+        
+        animateElements.forEach(el => {
+            el.classList.add('fade-in-element');
+            observer.observe(el);
+        });
+    }
 });
 
 // Add loading state to buttons
@@ -139,7 +180,7 @@ document.querySelectorAll('.btn').forEach(btn => {
     });
 });
 
-// Add ripple CSS styles dynamically
+// Add ripple CSS styles and loading states dynamically
 const style = document.createElement('style');
 style.textContent = `
     .btn {
@@ -160,6 +201,44 @@ style.textContent = `
         to {
             transform: scale(4);
             opacity: 0;
+        }
+    }
+    
+    .loading-spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 8px;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    
+    .form-success-message {
+        background: linear-gradient(135deg, #4CAF50, #45a049);
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 `;
