@@ -163,6 +163,7 @@ body {
   z-index: 1000;
   transition: all var(--duration-normal) var(--ease-premium);
   box-shadow: var(--shadow-luxury);
+  height: 80px; /* Define consistent navbar height */
 }
 
 .nav-container {
@@ -274,6 +275,7 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding-top: 80px; /* Account for fixed navbar */
 }
 
 .hero-container {
@@ -1764,6 +1766,27 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1366px) and (min-width: 1025px) {
+  /* Laptop and 13-inch screen optimizations */
+  .hero-section {
+    min-height: 95vh;
+    padding-top: 90px; /* Optimized for laptop screens */
+  }
+  
+  .hero-container {
+    gap: var(--space-3xl);
+    max-width: 1100px;
+  }
+  
+  .hero-main-title {
+    font-size: var(--font-size-5xl);
+  }
+  
+  .hero-sub-title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
 @media (max-width: 1024px) {
   :root {
     --space-xl: 1.5rem;
@@ -1878,7 +1901,8 @@ body {
   
   .hero-section {
     min-height: 90vh;
-    padding: var(--space-2xl) 0;
+    padding-top: 100px; /* Account for mobile navbar */
+    padding-bottom: var(--space-2xl);
   }
   
   .hero-container {
@@ -2054,7 +2078,8 @@ body {
   
   .hero-section {
     min-height: 85vh;
-    padding: var(--space-xl) 0;
+    padding-top: 100px; /* Account for mobile navbar */
+    padding-bottom: var(--space-xl);
   }
   
   .hero-container {
