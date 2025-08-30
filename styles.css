@@ -2215,6 +2215,15 @@ body {
     font-weight: 600;
   }
   
+  /* Make "Our Approach" button smaller on mobile */
+  .about-section .premium-cta {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    width: auto;
+    display: inline-block;
+  }
+  
   .secondary-cta {
     padding: var(--space-sm) var(--space-lg);
     font-size: var(--font-size-sm);
