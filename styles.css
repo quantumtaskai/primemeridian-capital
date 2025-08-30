@@ -105,9 +105,9 @@ body {
 
 /* Premium Typography */
 .hero-headline {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-white);
@@ -121,9 +121,9 @@ body {
 }
 
 .section-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-4xl));
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   color: var(--black-primary);
   margin-bottom: var(--space-md);
@@ -144,7 +144,7 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 24px;
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--black-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -183,7 +183,7 @@ body {
 }
 
 .logo-text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--white);
@@ -192,7 +192,7 @@ body {
 .logo-subtitle {
   font-size: var(--font-size-sm);
   color: var(--gold-primary);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -206,7 +206,7 @@ body {
 .nav-link {
   color: var(--text-white);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--font-size-sm);
   position: relative;
   transition: color var(--duration-normal) var(--ease-premium);
@@ -330,7 +330,7 @@ body {
   border-radius: 50px;
   color: var(--text-white-secondary);
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: var(--space-xl);
 }
 
@@ -402,7 +402,7 @@ body {
   gap: var(--space-sm);
   color: var(--text-white);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--font-size-base);
   transition: all var(--duration-normal) var(--ease-premium);
 }
@@ -442,7 +442,7 @@ body {
 
 .metric .value {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--gold-accent);
@@ -458,7 +458,7 @@ body {
 
 /* Hero Section - Original Structure */
 .hero-main-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(var(--font-size-5xl), 8vw, var(--font-size-6xl));
   font-weight: 700;
   line-height: 1;
@@ -470,9 +470,9 @@ body {
 }
 
 .hero-sub-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-5xl));
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   color: var(--white);
   text-align: center;
@@ -484,7 +484,7 @@ body {
 .hero-tagline {
   font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-lg);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--gold-primary);
   text-align: center;
   text-transform: uppercase;
@@ -520,7 +520,7 @@ body {
   padding: var(--space-sm) var(--space-lg);
   font-size: var(--font-size-sm);
   color: var(--gold-primary);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: var(--space-xl);
 }
 
@@ -542,7 +542,7 @@ body {
 
 .stat-number {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--gold-primary);
@@ -569,7 +569,7 @@ body {
   gap: var(--space-sm);
   color: var(--text-white);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--font-size-base);
   transition: all var(--duration-normal) var(--ease-premium);
 }
@@ -669,7 +669,7 @@ body {
 }
 
 .float-card h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-base);
   color: var(--white);
   margin-bottom: var(--space-xs);
@@ -680,7 +680,7 @@ body {
   font-size: var(--font-size-xs);
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Services Section - Enhanced with Background */
@@ -796,7 +796,7 @@ body {
 }
 
 .service-card-original h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-2xl);
   color: var(--black-primary);
   margin-bottom: var(--space-lg);
@@ -893,7 +893,7 @@ body {
 }
 
 .about-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-3xl);
   color: var(--white);
   margin-bottom: var(--space-lg);
@@ -1062,7 +1062,7 @@ body {
 }
 
 .luxury-service-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-xl);
   color: var(--black-primary);
   margin: 0;
@@ -1150,7 +1150,7 @@ body {
 }
 
 .leadership-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-4xl));
   color: var(--black-primary);
   margin-bottom: var(--space-sm);
@@ -1323,7 +1323,7 @@ body {
 }
 
 .leadership-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-4xl);
   color: var(--black-primary);
   margin-bottom: var(--space-sm);
@@ -1337,7 +1337,7 @@ body {
 }
 
 .leadership-quote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-xl);
   font-style: italic;
   color: var(--black-primary);
@@ -1364,7 +1364,7 @@ body {
 
 .highlight-number {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--gold-primary);
@@ -1480,7 +1480,7 @@ body {
   color: var(--white);
   text-decoration: none;
   border-radius: 12px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all var(--duration-normal) var(--ease-premium);
   box-shadow: var(--shadow-medium);
 }
@@ -1560,7 +1560,7 @@ body {
 }
 
 .form-header h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   color: var(--navy-primary);
   margin-bottom: var(--space-sm);
 }
@@ -1584,7 +1584,7 @@ body {
 }
 
 .form-group label {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-primary);
   font-size: var(--font-size-sm);
 }
@@ -1887,7 +1887,7 @@ body {
   .nav-menu .nav-link {
     color: var(--text-white);
     font-size: var(--font-size-lg);
-    font-weight: 500;
+    font-weight: 600;
     padding: var(--space-md) var(--space-xl);
     border-radius: 8px;
     transition: all var(--duration-normal) var(--ease-premium);
@@ -1980,7 +1980,7 @@ body {
     font-size: clamp(2.5rem, 12vw, 4rem);
     margin-bottom: var(--space-sm);
     line-height: 0.9;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: -0.02em;
   }
   
@@ -1988,7 +1988,7 @@ body {
     font-size: clamp(1.8rem, 8vw, 2.5rem);
     margin-bottom: var(--space-md);
     line-height: 0.9;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: -0.01em;
   }
   
@@ -2071,7 +2071,7 @@ body {
     background: transparent;
     border: 2px solid var(--gold-primary);
     color: var(--gold-primary);
-    font-weight: 500;
+    font-weight: 600;
   }
   
   .form-grid {
@@ -2219,7 +2219,7 @@ body {
   .about-section .premium-cta {
     padding: var(--space-sm) var(--space-lg);
     font-size: var(--font-size-sm);
-    font-weight: 500;
+    font-weight: 600;
     width: auto;
     display: inline-block;
   }
