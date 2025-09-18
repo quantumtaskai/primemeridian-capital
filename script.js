@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (!prefersReducedMotion) {
-        const animateElements = document.querySelectorAll('.service-card-original, .about-content-original, .leadership-content-original');
+        const animateElements = document.querySelectorAll('.service-card-original, .about-content-original, .leadership-header, .leadership-bio-section');
         
         animateElements.forEach(el => {
             el.classList.add('fade-in-element');
