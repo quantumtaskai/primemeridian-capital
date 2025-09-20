@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  primemeridian-website:
+    build: .
+    container_name: primemeridian-website
+    restart: unless-stopped
+    ports:
+      - 80
+    networks:
+      - dokploy-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.primemeridian-website.rule=Host(`primemeridian-capital.com`)"
+      - "traefik.http.routers.primemeridian-website.entrypoints=websecure"
+      - "traefik.http.routers.primemeridian-website.tls.certResolver=letsencrypt"
+      - "traefik.http.services.primemeridian-website.loadbalancer.server.port=80"
+
+networks:
+  dokploy-network:
+    external: true
