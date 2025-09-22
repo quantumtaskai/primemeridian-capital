@@ -57,5 +57,6 @@ The site displays contact information for:
 ## Content Structure
 
 - **Services**: M&A Advisory, Capital Advisory, Business Growth & Market Intelligence
-- **Statistics**: $2.4B+ transaction value, 98% success rate, 25+ countries
+- **Statistics**: $2.4B+ transaction value, 25+ countries
 - **Leadership**: Purva Mehta with 15+ years experience in M&A and investment advisory
+- add these to to-dos for late
