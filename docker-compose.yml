@@ -16,14 +16,67 @@ services:
       retries: 3
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.primemeridian-website.rule=Host(`primemeridian-capital.com`) || Host(`www.primemeridian-capital.com`)"
+      - "traefik.http.routers.primemeridian-website.rule=(Host(`primemeridian-capital.com`) || Host(`www.primemeridian-capital.com`)) && !PathPrefix(`/api`)"
       - "traefik.http.routers.primemeridian-website.entrypoints=websecure"
       - "traefik.http.routers.primemeridian-website.tls.certResolver=letsencrypt"
       - "traefik.http.services.primemeridian-website.loadbalancer.server.port=80"
-      - "traefik.http.routers.primemeridian-website-http.rule=Host(`primemeridian-capital.com`) || Host(`www.primemeridian-capital.com`)"
+      - "traefik.http.routers.primemeridian-website-http.rule=(Host(`primemeridian-capital.com`) || Host(`www.primemeridian-capital.com`)) && !PathPrefix(`/api`)"
       - "traefik.http.routers.primemeridian-website-http.entrypoints=web"
       - "traefik.http.routers.primemeridian-website-http.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+
+  primemeridian-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: primemeridian-api
+    restart: unless-stopped
+    ports:
+      - 3000
+    networks:
+      - dokploy-network
+    environment:
+      # Core Configuration
+      - PORT=3000
+      - NODE_ENV=production
+      - ADMIN_EMAIL=purva.meh85@gmail.com
+      - ADMIN_PASSWORD_HASH=$2b$12$66a8013myclfzSx5jqYes.sxW3RQwphpUCwj2eJkPrl9Dzjryr2DS
+      - SESSION_SECRET=pm-capital-secure-session-key-2025-9a8b7c6d5e4f3g2h1i
+      - ALLOWED_ORIGINS=https://primemeridian-capital.com,https://www.primemeridian-capital.com
+      # Logging & Monitoring
+      - LOG_LEVEL=info
+      - LOG_FORMAT=json
+      - ENABLE_ACCESS_LOGS=true
+      - APP_NAME=primemeridian-capital
+      - APP_VERSION=1.0.0
+      - DEPLOYMENT_ENV=production
+      # Rate Limiting
+      - LOGIN_RATE_LIMIT_MAX=5
+      - LOGIN_RATE_LIMIT_WINDOW=900000
+      - CONTACT_RATE_LIMIT_MAX=3
+      - CONTACT_RATE_LIMIT_WINDOW=60000
+      # Security
+      - FORCE_HTTPS=true
+      - TRUST_PROXY=true
+      - MAX_REQUEST_SIZE=10mb
+      # Data Management
+      - MAX_SUBMISSIONS=10000
+      - SUBMISSIONS_BACKUP_ENABLED=true
+      - BACKUP_RETENTION_DAYS=90
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.primemeridian-api.rule=(Host(`primemeridian-capital.com`) || Host(`www.primemeridian-capital.com`)) && PathPrefix(`/api`)"
+      - "traefik.http.routers.primemeridian-api.entrypoints=websecure"
+      - "traefik.http.routers.primemeridian-api.tls.certResolver=letsencrypt"
+      - "traefik.http.services.primemeridian-api.loadbalancer.server.port=3000"
+      - "traefik.http.routers.primemeridian-api-http.rule=(Host(`primemeridian-capital.com`) || Host(`www.primemeridian-capital.com`)) && PathPrefix(`/api`)"
+      - "traefik.http.routers.primemeridian-api-http.entrypoints=web"
+      - "traefik.http.routers.primemeridian-api-http.middlewares=redirect-to-https"
 
 networks:
   dokploy-network:
